@@ -1,1 +1,24 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
 
+int main()
+{
+    char PlayerDecision;
+    int AIDecision, i = 0;
+    
+    cout << "Welcome to Janken! This game is rock-paper-scissors but with a twist!" << endl;
+    cout << "The rules of game are you will play 1 game of rock-paper-scissors." << endl;
+    cout << "The winner will choose among these directions: Up, Down, Right, and Left." << endl;
+    cout << "If the loser chooses the same direction as the player, they get a flick to the forehead." << endl;
+    cout << "If the loser chooses the another direction from the player, they will have succesfully dodged." << endl;
+    cout << "Now, let's begin!" << endl;
+    
+    while(i % 2 == 0)
+    {
+        cout << "How many rounds of Janken would you like play? (Only odd number amount of rounds only!)" << endl;
+        cin >> i;
+        
+    
+    }
+}
