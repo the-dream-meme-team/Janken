@@ -1,34 +1,33 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <stdi.h>
 
-char PlayerDecision(void);
-int AIRoll(void);
+
+char PlayerDecision(void);//for later function use
+int AIRoll(void);//for later function use
 int main()
 {
     char PlayerDecision;
     int AIDecision, count = 0;
     // print out all the rules
-    cout << "Welcome to Janken! This game is rock-paper-scissors but with a twist!" << endl;
+    cout << "Welcome to Janken! This game is rock-paper-scissors but with a twist!" << endl;//rule explanation start
     cout << "The rules of game are you will play 1 game of rock-paper-scissors." << endl;
     cout << "The winner will choose among these directions: Up, Down, Right, and Left." << endl;
     cout << "If the loser chooses the same direction as the player, they get a flick to the forehead." << endl;
     cout << "If the loser chooses the another direction from the player, they will have succesfully dodged." << endl;
-    cout << "Now, let's begin!" << endl;
-   // the amount of rounds  
+    cout << "Now, let's begin!" << endl;//rule explanation end
    
-    cout << "How many rounds of Janken would you like play? (Only odd number amount of rounds only!)" << endl;
-    while(count % 2 == 0)
+    cout << "How many rounds of Janken would you like play? (Only odd number amount of rounds only!)" << endl;//print
+    while(count % 2 == 0)//checks if an odd amount of rounds entered: input validation and modulous operater
     }
-        cin >> count;
-            if(count % 2 == 0) 
+        cin >> count;//scan
+            if(count % 2 == 0) //prints if not odd
                 cout << "Please choose a valid amount of rounds, it must be an odd number.";
     }
     // player decision
     cout << "The game will now commence!" << endl;
     
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < count; i++)//for loop for later
     {
     PlayerDecision();
     }
