@@ -18,10 +18,10 @@ int main()
    // the amount of rounds  
    
     cout << "How many rounds of Janken would you like play? (Only odd number amount of rounds only!)" << endl;
-    while(count % 2 == 0)
+    while(count % 2 == 0)//Modulous
     }
-        cin >> count;
-            if(count % 2 == 0) 
+        cin >> count;//scans in count
+            if(count % 2 == 0) //input validation
                 cout << "Please choose a valid amount of rounds, it must be an odd number.";
     }
     // player decision
