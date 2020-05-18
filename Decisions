@@ -1,7 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <stdi>
+
+using namespace std;
 
 char PlayerDecision(void);
 int AIRoll(void);
