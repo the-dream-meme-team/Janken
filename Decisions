@@ -33,4 +33,9 @@ int main()
     PlayerDecision();
     }
 }
-PlayerDe
+PlayerDescision(void);
+{
+    
+}
+
+
