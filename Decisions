@@ -2,12 +2,29 @@
 #include <iomanip>
 #include <string>
 
+
+struct AIstat
+{
+    int AIwins;
+    int AIloss;
+    int AIties;
+};
+struct playerstat
+{
+    char Pname;
+    int Pwins;
+    int Ploss;
+    int  Pties;
+    AIstat AIstatistic;
+};
+
 using namespace std;
 
 char PlayerDecision(void);
 int AIRoll(void);
 int main()
 {
+    playerstat statistics[3]
     int AIDecision, count = 0;
     // print out all the rules
     cout << "Welcome to Janken! This game is rock-paper-scissors but with a twist!" << endl;
