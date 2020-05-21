@@ -20,12 +20,15 @@ struct playerstat
 
 using namespace std;
 
-char PlayerDecision(void);
-int AIRoll(void);
+int PlayerDecision(int&);
+int AIRoll();
 int main()
 {
-    playerstat statistics[3]
+    playerstat statistics[2];
+    int rounds,RPS;
     int AIDecision, count = 0;
+    char scoreboardnames[3] = {'Kekyoin','JOJO','Koichi'};
+    int scoreboardscore[3] = {20,13,4};
     // print out all the rules
     cout << "Welcome to Janken! This game is rock-paper-scissors but with a twist!" << endl;
     cout << "The rules of game are you will play 1 game of rock-paper-scissors." << endl;
@@ -33,26 +36,29 @@ int main()
     cout << "If the loser chooses the same direction as the player, they get a flick to the forehead." << endl;
     cout << "If the loser chooses the another direction from the player, they will have succesfully dodged." << endl;
     cout << "Now, let's begin!" << endl;
-   // the amount of rounds  
-   
+   // the amount of rounds
+
     cout << "How many rounds of Janken would you like play? (Only odd number amount of rounds only!)" << endl;
-    while(count % 2 == 0)//Modulous
+    cin >> rounds;
+    while(rounds % 2 == 0)//Modulous
+    {
+        cin >> rounds;//scans in count
+        if(rounds % 2 == 0) //input validation
+            cout << "Please choose a valid amount of rounds, it must be an odd number.";
     }
-        cin >> count;//scans in count
-            if(count % 2 == 0) //input validation
-                cout << "Please choose a valid amount of rounds, it must be an odd number.";
-    }
+
     // player decision
     cout << "The game will now commence!" << endl;
-    
-    for (int i = 0; i < count; i++)
+
+    for (int i = 0; i < rounds; i++)
     {
-    PlayerDecision();
+        PlayerDecision(RPS);
+        AIRoll()
     }
 }
-PlayerDescision(void);
+int PlayerDecision(int &RPS)
 {
-    
+    cout << "would you like to pick rock(1) Paper(2) or scissors(3)";
+    cin >> RPS;
 }
-
 
