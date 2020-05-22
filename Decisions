@@ -10,7 +10,7 @@ struct AIstat
     int AIloss = 0;
     int AIties = 0;
 };
-struct playerstat
+struct Playerstat
 {
     char Pname;
     int Pwins= 0;
@@ -67,17 +67,35 @@ int main()
 
     }
 
-    else if(
+    else if(PlayerDescision() == 3 && AIRoll() == 1)
+    {
+    Playerstat.Ploss++;
+    AIstat.AIwins++;
+    }
 
-    else if(
+    else if(PlayerDescision() == 2 && AIRoll() == 3)
+    {
+        Playerstat.Ploss++;
+        AIstat.AIwins++;
+    }
 
-    else if(
+    else if(PlayerDescision() == 3  && AIRoll == 2
 
-    else if(
+    else if(PlayerDescision() == 2 && AIRoll() == 1)
+    {
+        Playerstat.Pwins++;
+        AIstat.AIloss++;
+    }
+    else if(PlayerDescision() == 1 && AIRoll() == 3)
+    {
+        Playerstat.Pwins++;
+        AIstat.AIloss++;
+    }
 
-    else if(
-
-    else if(
+    else if(PlayerDescision() == 1 && AIRoll() == 2)
+    {
+        Playerstat.Ploss++;
+        AIstat.AIwins++;
     }
 
 }
