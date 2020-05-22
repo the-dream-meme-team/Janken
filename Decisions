@@ -75,6 +75,7 @@ int PlayerDecision(int &RPS)//reference variable
             cin >> RPS;//gets player choice
         }
 }
+
 //*********************************************************************************************************
 //*     input: none                                                                                       *
 //*     output: none                                                                                      *
@@ -82,13 +83,12 @@ int PlayerDecision(int &RPS)//reference variable
 //*********************************************************************************************************
 int AIRoll(int AIrand)
 {
-    while(AIrand < 1|| AIrand >3)
+    for(int i = 0; i<3; i++)
     {
         srand(time(NULL));//gets time
-        AIrand = (rand() % 3) + 1;//randomizes between 1-3
+        AIrand = rand() % 3 + 1;//randomizes between 1-3
+
+        return AIrand;//returns AIrand to AIchoice
     }
-
-
-    return AIrand;//returns AIrand to AIchoice
 
 }
