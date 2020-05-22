@@ -6,16 +6,16 @@
 
 struct AIstat
 {
-    int AIwins;
-    int AIloss;
-    int AIties;
+    int AIwins = 0;
+    int AIloss = 0;
+    int AIties = 0;
 };
 struct playerstat
 {
     char Pname;
-    int Pwins;
-    int Ploss;
-    int  Pties;
+    int Pwins= 0;
+    int Ploss =0;
+    int  Pties = 0;
     AIstat AIstatistic;
 };
 
@@ -58,8 +58,28 @@ int main()
 
         PlayerDecision(RPS);//Calls PlayerDecision
         AIchoice =  AIRoll(AIrandomizer);//calls AIRoll
-        cout << AIchoice << endl;
+
+        if(AIchoice == RPS)
+    {
+        cout << "Tie";
+        playerstat.AIstatistic.AIties =  (playerstat.AIstatistic.AIties) + 1;
+
+
     }
+
+    else if(
+
+    else if(
+
+    else if(
+
+    else if(
+
+    else if(
+
+    else if(
+    }
+
 }
 //*********************************************************************************************************
 //*     input: none                                                                                       *
@@ -71,7 +91,7 @@ int PlayerDecision(int &RPS)//reference variable
         RPS = 0;
         while(RPS <1 || RPS >3)
         {
-            cout << "Would you like to pick rock(1) Paper(2) or scissors(3)";
+            cout << "would you like to pick rock(1) Paper(2) or scissors(3)";
             cin >> RPS;//gets player choice
         }
 }
@@ -92,20 +112,3 @@ int AIRoll(int AIrand)
     }
 
 }
-else if(
-
-else if(
-
-else if(
-
-else if(
-
-else if(
-
-else if(
-
-else if(
-
-else if(
-
-else if(
