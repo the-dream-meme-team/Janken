@@ -71,7 +71,7 @@ int PlayerDecision(int &RPS)//reference variable
         RPS = 0;
         while(RPS <1 || RPS >3)
         {
-            cout << "would you like to pick rock(1) Paper(2) or scissors(3)";
+            cout << "Would you like to pick rock(1) Paper(2) or scissors(3)";
             cin >> RPS;//gets player choice
         }
 }
@@ -92,3 +92,20 @@ int AIRoll(int AIrand)
     }
 
 }
+else if(
+
+else if(
+
+else if(
+
+else if(
+
+else if(
+
+else if(
+
+else if(
+
+else if(
+
+else if(
