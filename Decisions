@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 struct AIstat
 {
@@ -12,8 +13,8 @@ struct AIstat
 };
 struct playerstat
 {
-    int Pwins= 0;
-    int Ploss =0;
+    int Pwins = 0;
+    int Ploss = 0;
     int  Pties;
     AIstat AIstatistic;
 };
@@ -122,6 +123,12 @@ int main()
             }
         }
     }
+    ofstream Score;
+    Score.open ("finalScore.txt");
+    cout << "THE RESULTS ARE AGAINST THE AI ARE: " << endl;
+    cout << "WINS: " << wins << endl;
+    cout << "LOSSES: " << losses << end;
+    Score.close;
 
 
 }
