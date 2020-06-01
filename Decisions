@@ -13,8 +13,8 @@ struct AIstat
 };
 struct playerstat
 {
-    int Pwins = 0;
-    int Ploss = 0;
+    int Pwins;
+    int Ploss;
     int  Pties;
     AIstat AIstatistic;
 };
@@ -32,6 +32,7 @@ int main()
     int AIchoice, AIdirection;
     int rounds,RPS = 0,Pdirection;
     int AIDecision, count = 0;
+    int Finalwin= 0, Finaloss = 0,FinalA = 0, FinalB = 0;
     char scoreboardnames[3][10] = {"Kekyoin","JOJO","Koichi"};//parallel arrays for later use
     int scoreboardscore[3] = {20,13,4};//parallel arrays for later use
     for(int i = 0; i < 3; i++)\
@@ -42,6 +43,7 @@ int main()
         statistics[i].Pwins= 0;
         statistics[i].Ploss =0;
         statistics[i].Pties = 0;
+
     }
 
     // print out all the rules
@@ -84,51 +86,60 @@ int main()
                 cout << "Player wins" << " AI chose: " << AIchoice << endl;
                 statistics[j].AIstatistic.AIloss++;
                 statistics[j].Pwins++;
-                Pwin(AIdirection,Pdirection);
+                FinalA =  Pwin(AIdirection,Pdirection);
             }
             if(AIchoice == 2 && RPS ==3)
             {
                 cout << "Player wins" << " AI chose: " << AIchoice <<endl;
                 statistics[j].AIstatistic.AIloss++;
                 statistics[j].Pwins++;
-                Pwin(AIdirection,Pdirection);
+                FinalA =  Pwin(AIdirection,Pdirection);
             }
             if(AIchoice == 3 && RPS ==1)
             {
                 cout << "Player wins" << " AI chose: " << AIchoice<< endl;
                 statistics[j].AIstatistic.AIloss++;
                 statistics[j].Pwins++;
-                Pwin(AIdirection,Pdirection);
+               FinalA =  Pwin(AIdirection,Pdirection);
             }
             if(RPS == 1 &&   AIchoice==2)
             {
                 cout << "AI wins having chosen " << AIchoice << endl;
                 statistics[j].AIstatistic.AIwins++;
                 statistics[j].Ploss++;
-                AIdirect(AIdirection,Pdirection);
+                FinalB = AIdirect(AIdirection,Pdirection);
             }
             if(RPS == 2 &&   AIchoice==3)
             {
                 cout << "AI wins having chosen " << AIchoice << endl;
                 statistics[j].AIstatistic.AIwins++;
                 statistics[j].Ploss++;
-                AIdirect(AIdirection,Pdirection);
+                FinalB = AIdirect(AIdirection,Pdirection);
             }
             if(RPS == 3 &&   AIchoice==1)
             {
                 cout << "AI wins having chosen " << AIchoice << endl;
                 statistics[j].AIstatistic.AIwins++;
                 statistics[j].Ploss++;
-                AIdirect(AIdirection,Pdirection);
+                FinalB = AIdirect(AIdirection,Pdirection);
             }
         }
     }
+    for(int i = 0; i < rounds; i++)
+        {
+            Finalwin = Finalwin + FinalA;
+            Finaloss = Finaloss + FinalB;
+        }
     ofstream Score;
-    Score.open ("finalScore.txt");
+    Score.open ("finalScore.txt");//opens finalScore as Score
+    if(!Score)
+    {
+        cout << "stupid poopy bunghole";
+    }
     cout << "THE RESULTS ARE AGAINST THE AI ARE: " << endl;
-    cout << "WINS: " << wins << endl;
-    cout << "LOSSES: " << losses << end;
-    Score.close;
+    Score << "WINS: " << Finalwin << endl;
+    Score << "LOSSES: " << Finaloss << endl;
+    Score.close();
 
 
 }
@@ -172,6 +183,7 @@ int AIRoll(int AIrand)
 int Pwin(int AIdirection,int Pdirection)
 {
     Pdirection = 0;
+    int returnflick = 0;
     while(Pdirection < 1 || Pdirection > 4)
     {
         cout << endl <<"Choose a direction up(1) left(2) down(3) right(4)";
@@ -185,9 +197,15 @@ int Pwin(int AIdirection,int Pdirection)
         //returns AIrand to AIchoice
     }
     if(AIdirection == Pdirection)
-        cout << "Good guessing Player gets to flick the AI ... if you can figure out how" << endl;
+        {
+            cout << "Good guessing Player gets to flick the AI ... if you can figure out how" << endl;
+            returnflick++;
+            return returnflick;
+        }
     else
         cout << "No one gets flicked you picked different directions" << endl;
+
+
 }
 //*********************************************************************************************************************
 //*     input: none                                                                                                   *
@@ -196,6 +214,7 @@ int Pwin(int AIdirection,int Pdirection)
 //*********************************************************************************************************************
 int AIdirect(int AIdirection, int Pdirection)
 {
+    int returnflick = 0;
     Pdirection = 0;
     while(Pdirection < 1 || Pdirection > 4)//input validation
     {
@@ -209,7 +228,12 @@ int AIdirect(int AIdirection, int Pdirection)
         //returns AIrand to AIchoice
     }
      if(AIdirection == Pdirection)
+     {
         cout << "Please flick yourself since the computer doesn't have hands "<< endl;
+        returnflick ++;
+        return returnflick;
+     }
+
     else
         cout << "No one gets flicked you picked different directions" << endl;
 }
