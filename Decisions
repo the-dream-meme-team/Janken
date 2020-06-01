@@ -123,22 +123,21 @@ int main()
                 statistics[j].Ploss++;
                 FinalB = AIdirect(AIdirection,Pdirection);
             }
+
+
+
         }
     }
-    for(int i = 0; i < rounds; i++)
-        {
-            Finalwin = Finalwin + FinalA;
-            Finaloss = Finaloss + FinalB;
-        }
+
     ofstream Score;
     Score.open ("finalScore.txt");//opens finalScore as Score
-    if(!Score)
-    {
-        cout << "stupid poopy bunghole";
-    }
+
+    Finalwin = Finalwin + FinalA;
+    Finaloss = Finaloss + FinalB;
     cout << "THE RESULTS ARE AGAINST THE AI ARE: " << endl;
     Score << "WINS: " << Finalwin << endl;
     Score << "LOSSES: " << Finaloss << endl;
+
     Score.close();
 
 
@@ -200,12 +199,12 @@ int Pwin(int AIdirection,int Pdirection)
         {
             cout << "Good guessing Player gets to flick the AI ... if you can figure out how" << endl;
             returnflick++;
-            return returnflick;
+
         }
     else
         cout << "No one gets flicked you picked different directions" << endl;
 
-
+    return returnflick;
 }
 //*********************************************************************************************************************
 //*     input: none                                                                                                   *
@@ -231,9 +230,11 @@ int AIdirect(int AIdirection, int Pdirection)
      {
         cout << "Please flick yourself since the computer doesn't have hands "<< endl;
         returnflick ++;
-        return returnflick;
+
      }
 
     else
         cout << "No one gets flicked you picked different directions" << endl;
+
+        return returnflick;
 }
