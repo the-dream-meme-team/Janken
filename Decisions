@@ -35,7 +35,7 @@ int main()
     int AIDecision, count = 0;
     int Finalwin= 0, Finaloss = 0,FinalA = 0, FinalB = 0;
     char Pname[20] = {0};
-    char scoreboardnames[3][10] = {"Kekyoin","JOJO","Koichi"};//parallel arrays for later use
+    char scoreboardnames[3] = {"Kekyoin","JOJO","Koichi"};//parallel arrays for later use
     int scoreboardscore[3] = {20,13,4};//parallel arrays for later use
     for(int i = 0; i < 3; i++)\
     {
@@ -151,6 +151,10 @@ int main()
     Score << "LOSSES: " << Finaloss << endl;
 
     Score.close();
+    
+    cout << scoreboardnames[1] << "'s score was: " << scoreboardscore[1];
+    cout << scoreboardnames[2] << "'s score was: " << scoreboardscore[2];
+    cout << scoreboardnames[3] << "'s score was: " << scoreboardscore[3];
 
 
 }
