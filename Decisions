@@ -34,12 +34,12 @@ int main()
     int rounds,RPS = 0,Pdirection;
     int AIDecision, count = 0;
     int Finalwin= 0, Finaloss = 0,FinalA = 0, FinalB = 0;
-    char Pname[20] = {0};
-    char scoreboardnames[3] = {"Kekyoin","JOJO","Koichi"};//parallel arrays for later use
-    int scoreboardscore[3] = {20,13,4};//parallel arrays for later use
+    char Pname[20] = {0};//used for input output file
+    string scoreboardnames[3] = {"Kekyoin","JOJO","Koichi"};//parallel arrays
+    int scoreboardscore[3] = {20,13,4};//parallel arrays
     for(int i = 0; i < 3; i++)\
     {
-        statistics[i].AIstatistic.AIwins = 0;
+        statistics[i].AIstatistic.AIwins = 0;//sets all the struct variables to zero as to avoid issues
         statistics[i].AIstatistic.AIloss = 0;
         statistics[i].AIstatistic.AIties = 0;
         statistics[i].Pwins= 0;
@@ -77,13 +77,13 @@ int main()
             PlayerDecision(RPS);//Calls PlayerDecision
             AIchoice =  AIRoll(AIrandomizer);//calls AIRoll
 
-            if(AIchoice == RPS)
+            if(AIchoice == RPS)//checks for a tie
             {
                 cout << "Tie" << endl;
                 statistics[j].AIstatistic.AIties++;
                 statistics[j].Pties++;
             }
-            if(AIchoice == 1 && RPS ==2)
+            if(AIchoice == 1 && RPS ==2)//start of checking for Player wins
             {
                 cout << "Player wins" << " AI chose: " << AIchoice << endl;
                 statistics[j].AIstatistic.AIloss++;
@@ -97,14 +97,14 @@ int main()
                 statistics[j].Pwins++;
                 FinalA =  Pwin(AIdirection,Pdirection);
             }
-            if(AIchoice == 3 && RPS ==1)
+            if(AIchoice == 3 && RPS ==1)//end of player wins
             {
                 cout << "Player wins" << " AI chose: " << AIchoice<< endl;
                 statistics[j].AIstatistic.AIloss++;
                 statistics[j].Pwins++;
                FinalA =  Pwin(AIdirection,Pdirection);
             }
-            if(RPS == 1 &&   AIchoice==2)
+            if(RPS == 1 &&   AIchoice==2)//start of AI wins
             {
                 cout << "AI wins having chosen " << AIchoice << endl;
                 statistics[j].AIstatistic.AIwins++;
@@ -118,7 +118,7 @@ int main()
                 statistics[j].Ploss++;
                 FinalB = AIdirect(AIdirection,Pdirection);
             }
-            if(RPS == 3 &&   AIchoice==1)
+            if(RPS == 3 &&   AIchoice==1)//end of Ai wins
             {
                 cout << "AI wins having chosen " << AIchoice << endl;
                 statistics[j].AIstatistic.AIwins++;
@@ -126,21 +126,20 @@ int main()
                 FinalB = AIdirect(AIdirection,Pdirection);
             }
 
-
-
         }
     }
-    ifstream Name;
-    ofstream Score;
+
+    ifstream Name;//opens ifstream to get name
+    ofstream Score;//opens ofstream to print name and player data
     int n = 0;
     Name.open("Pname.txt");//opens Name to get the name
     Score.open ("finalScore.txt");//opens finalScore as Score
     cout << "please put your name in the file named Pname a text file";
-    while(Name >> Pname[n])
+    while(Name >> Pname[n])//helps get n
         n++;
 
-    Finalwin = Finalwin + FinalA;
-    Finaloss = Finaloss + FinalB;
+    Finalwin = Finalwin + FinalA;//adds up to obtain the final scoring for wins
+    Finaloss = Finaloss + FinalB;//adds up to get final loss count
 
     for(int i = 0; i < n; i++)
     {
@@ -150,11 +149,12 @@ int main()
     Score << "WINS: " << Finalwin << endl;
     Score << "LOSSES: " << Finaloss << endl;
 
-    Score.close();
-    
-    cout << scoreboardnames[1] << "'s score was: " << scoreboardscore[1];
-    cout << scoreboardnames[2] << "'s score was: " << scoreboardscore[2];
-    cout << scoreboardnames[3] << "'s score was: " << scoreboardscore[3];
+    Score.close();//closes score
+    Name.close();//closes Name
+
+    cout << endl << scoreboardnames[0] << "'s score was: " << scoreboardscore[0]<<endl;//start of printing parrallel array
+    cout << scoreboardnames[1] << "'s score was: " << scoreboardscore[1]<<endl;
+    cout << scoreboardnames[2] << "'s score was: " << scoreboardscore[2]<<endl;//finish of parallel array printing
 
 
 }
